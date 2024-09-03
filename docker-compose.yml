@@ -1,0 +1,30 @@
+services:
+    backend:
+        image: compose-test-backend-img
+        container_name: compose-test-backend
+        pull_policy: never
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        ports:
+            - 3001:3001
+
+    realtime-backend:
+        image: compose-test-realtime-backend-img
+        container_name: compose-test-realtime-backend
+        pull_policy: never
+        build:
+            context: ./realtime-backend
+            dockerfile: Dockerfile
+        ports:
+            - 8080:8080
+
+    frontend:
+        image: compose-test-frontend-img
+        container_name: compose-test-frontend
+        pull_policy: never
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        ports:
+            - 3000:3000
